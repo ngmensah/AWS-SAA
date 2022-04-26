@@ -1,0 +1,23 @@
+EC2 Bootstrapping
+  Bootstrapping allows Ec2 build automation
+  User Data - Accessed via the meta data IP
+  http://169.254.169.254/latest/user-data
+  Anything in user-data is excecuted by the instance OS
+  User data is executed only ONCE on LAUNCH
+  EC2 doesn't understand user data but the OS DOES understand.
+  
+User Data Key Points
+  User data is opaque (Not seen or not transparent) to EC2. It's just a block of data.
+  User data is not SECURE. Don't use it for passwords or long term credentials. 
+  Anyone who has access to the instance OS will have access to the user data.
+  User data is limited to 16 KB in size
+  User data can be modified when instance is in "stopped" state.
+  The contents of user data is only launched ONCE at launch
+  
+Boot-Time-To-Service-Time
+  AMI (Launch time to service time) = minutes
+  Post launch time = the time after launch to make manual or automatic configurations before instance is ready for service. 
+  How to shorten the post launch time? = bootstrapping.
+  Bootstrapping = automates installation after instance is launched.
+  AMI Bake = removes post launch time. No flexibility
+  AMI Baking and Bootstrapping can be used together
