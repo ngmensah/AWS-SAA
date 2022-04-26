@@ -1,0 +1,14 @@
+CFN-INIT
+  Allows you to set a state for packages, users, groups, sources, files, commands and services within resources inside a template.
+  Helper Script - installed on EC2 OS
+  Simple configuration management system
+  Procedural = (User Data) vs Desired State = (cfn-init)
+  Procedural = running a script line by line
+  Desired state = direct EC2 how you want it to be
+  Provided with directives via Metadata and AWS::CloudFormation::Init on a CFN resource
+  
+CreationPolicy
+  Something added to a logical resource inside a cloudFormation template.
+  CloudFormation stack waits for a signal from cfn-signal to determine if the resource bis complete or has an error.
+  Creation Policies create a 'WAIT STATE' on resources...not allowing the resource to move to CREATE_COMPLETE until signalled using the cfn-signal tool
+  
