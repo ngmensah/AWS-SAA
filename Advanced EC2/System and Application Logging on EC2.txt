@@ -1,0 +1,10 @@
+CloudWatch 
+  product for storing and managing metrics in AWS.
+  CloudWatch Logs is a subset
+  CloudWatch Logs - stores, manages, and visualizes any logging data
+  Neither CloudWatch and CloudWatch Logs can natively capture data inside an instance
+  
+CloudWatch Agent
+  required for CW and CW Logs to have visibility into data within an instance
+  In order for CW Agent to function, it needs to have configuration and permissions in order to send data into CW and CW Logs
+  
