@@ -1,0 +1,16 @@
+SSM Parameter Store 
+  Allows the storage and retrieval of parameters
+  There are 3 types of parameters - string, stringlist or secure string
+  String = Any string value
+  StringList = Separate strings using commas
+  SecureString = Encrypt sensitive data using KMS keys from your account or another account
+  Can store things inside the product such as - license codes, database connection strings, full configs & passwords
+  Supports encryption which integrates with KMS, versioning and can be secured using IAM
+  Integrates natively with many AWS services.
+  Can be accessed using CLI/APIs from anywhere with access to the AWS pUblic Spare Endpoints
+  Allows you to store parameters using a hierarchial structure
+  Can store different versions of parameters
+  Can store plain text parameters
+  When storing ciphertext, KMS is used for strong passwords or other sensitive info
+  Stores public parameters created by AWS
+  tightly integrated with IAM so access will beed to be authenticated and authorized
