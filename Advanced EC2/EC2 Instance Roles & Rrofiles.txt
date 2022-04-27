@@ -1,0 +1,13 @@
+EC2 Instance Roles 
+  Instance can assume and has permissions that the role grants
+  IAM role has permissions policy attached to it. Temporary credentials are given to EC2 instance
+  Instance Profile is a wrapper around an IAM role
+  Instance profile allows the permissions to get inside the instance
+  When instance is created, instance profile is created with the same name
+  When instance is created using Command line or cloud formation, the instance and instance profile is created separately
+  Instance profile is attached to an EC2 instance
+  Inside a EC2 instance, credentials are delivered via the instance metadata
+  credentials inside the metadata are always valid and rotated
+  Inside the metadata is an IAM tree - iam/security-credentials/role-name
+  Roles should always be used rather than adding access keys into instance
+  CLI tools will use role credentials automatically
