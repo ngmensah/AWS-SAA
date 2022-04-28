@@ -1,0 +1,26 @@
+R53 Public Hosted Zones
+  a container that holds infomation about how you want to route traffic on the internet for a specific domain which is accessible from the public internet.
+  a DNS DB for a domain. (Ex. animals4life.org)
+  globally resilient (multiple DNS servers)
+  created with domain registration via R53 - can be created separately
+  Host DNS Records (Ex. A, AAAA, MX, NS, TXT)
+  Hosted Zones are what the DNS system references - Authoritiative for a domain (EX. Aminals4life.org)
+  DNS Database (Zone file) hosted by R53 (Public Name Server) 
+  Accessible from the public internet and within VPSs using the R53 resolver
+  Hosted pn "4" R53 Name servers (NS) specific for the zone
+  use "NS records" to point at these NS (connect to glocal DNS)
+  Resource records (RR) are created within Hosted Zone
+  Externally registered domains can point at R53 public zone
+  VPC +2 address = R53 Resolver
+  Walking The Tree = how any public internet host can access the records inside a public hosted zone using DNS
+  
+R53 Private Hosted Zone
+    A public Hosted Zone that isn't public
+    associated with VPCs in AWS
+    Only accessible within VPCs that it is associated with
+    using different accounts is supported via CLI/API
+    Split-view (overlapping public & private) for PUBLIC and INTERNAL use with the same zone name
+    inaccessible from the public internet. Private zone cannot be queried outside of associated VPCs
+    In order to access a private hosted zone, the service needs to be running inside a VPC and the VPC needs to be associated with the private hosted zone
+    Inside VPCs associated with the private hosted zone all resource records can be accessed.
+    A common architechture is to make the private zone a superset, containing more sensitive records
