@@ -1,0 +1,36 @@
+EC2 Placement Groups
+
+There are 3 types of placement groups: 
+
+  Cluster Placement Groups (Performance)
+    Pack instances close together
+    Create a group/AZ and launch instances within the group at the same time. (Not mandatory but very recommended)
+    Cluster groups have to be launched in a single AZ. Locked when launching 1st instance
+    All instances within the same cluster placement group use the same rack and often, the same EC2 host
+    All instances withing the same cluster hace direct connections to each other
+    When transferring between instances within the cluster, they can achieve stream tranfer rates of 10 GB/s vs the usual 5 GB/s which is achieved normally
+    The connections between these instances have the lowest latency and max packets per second (PPS) possible in AWS
+      Use cases: performance, fast speeds, low latency
+    cluster performance groups offer little to no resilience. 
+    if the HW that they are running on fails, it could take down all instances within the cluster
+    Cluster can span VPC peers but it will impacts performance
+    Requires a supported instance type
+    Use the same type of instance (not manadatory)
+    
+  Spread Placement Groups (Resilience) - Keep instances separated
+    7 instances per AZ - isolated infrastructure limit
+    each instance is in a spearate infrastructure rack
+    Provides infrastructure isolation
+    each rack has it's own network and power source
+    Not supported for dedicated instances or hosts
+    Use Case: Small number of critical instances that need to be kept separated from each other
+    
+  Partition Placement Groups (Topology Awareness) - groups od instances spread apart
+    can be created across multiple AZs
+    7 partitions per AZ
+    instances can be placed into specific partition or allow EC2 to automatically place the instance
+    Great for topology aware applications such as: HDFS, HBase, and Cassandra
+    divided into partitions within AZ
+    each partition has its own racks - no sharing between partitions
+    designed for huge scale parallel processing systems where groupings of instances have to be separated
+    Contain the impact of failure to part of an application
