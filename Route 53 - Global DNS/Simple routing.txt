@@ -1,0 +1,7 @@
+R53 Simple Routing
+  can create 1 record per name (www)
+  each record can have multiple values
+  all values are returned in a random order
+  client chooses and uses 1 value
+  use simple routing when you want to route requests towards one service such as a web server
+  Doesn't support health checks - all values are returned for a record when queried
