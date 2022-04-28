@@ -1,0 +1,15 @@
+Enhanced Networkong
+  Uses SingleRoot-IOVirtualization (SR-IOV) - makes it so that a physical network interface inside as EC2 host is aware of virtualization
+  The host has network cards that offers logical cards
+  No charge - available on most EC2 types
+  Higher I/O & Lower Host CPU usage
+  More bandwidth
+  Higher packets-per-second (PPS)
+  consistent lower latency
+  
+EBS Optimized
+  EBS = Block storage over the network
+  Historically network was shared...data and EBS
+  Most instances support and have enabled by default at no extra charge
+  On some older instances, it is supported but enabling costs extra
+  Means adding dedicated capacity for storage networking to an EC2 instance.
