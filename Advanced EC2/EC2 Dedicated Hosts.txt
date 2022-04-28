@@ -1,0 +1,14 @@
+EC2 Dedicated Hosts
+  Host is dedicated to your AWS account
+  No instance charges. You pay for the host
+  Designed for a specific family of instances. (Ex. a1, c5, m5)
+  You can pay an on-demand or reserved price for the host
+  the host HW comes with physical sockets and cores
+  
+Limitations & Features for Dedicated Hosts
+  AMI Limits - RHEL, SUSE Linux, and Windows AMIs aren't supported
+  Amazon RDS instances aren't supported
+  Placement groups are not supported
+  Hosts can be shared with other accounts inside the ORG using the Resource Access Manager (RAM)
+  You can see the instances you create on your dedicated host but you can't see the instances created by other accounts within your host
+  Those who create instances on your host can only see the instances they create
