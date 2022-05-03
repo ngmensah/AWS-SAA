@@ -1,0 +1,9 @@
+Geoproximity Routing
+
+  lets Amazon Route 53 route traffic to your resources based on the geographic location of your users and your resources.
+  You can also optionally choose to route more traffic or less to a given resource by specifying a value, known as a bias. 
+  A bias expands or shrinks the size of the geographic region from which traffic is routed to a resource.
+  Records can be tagged with an AWS region or lat & lon coordinates
+  "+" or "-" bias can be added to rules. "+" increases a region size and decreases neighbouring regions
+  Routing is distance based (including bias)
+  
