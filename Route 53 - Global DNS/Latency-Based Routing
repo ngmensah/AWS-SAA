@@ -1,0 +1,7 @@
+Latency-Based Routing
+
+  Used when optimising for performance & user experience
+  Supports one record with the same name in each AWS region
+  AWS maintains a database of latency between the users general location and the regions tagged in records
+  The record returned is the one which offers the lowest estimated leatency & is healthy
+  
