@@ -1,0 +1,49 @@
+Relational (SQL) vs Non-Relational (NoSQL)
+
+Structured Query Language (SQL)
+  - Structure in & between tables of data - Rigid Schema (defined before data is but into the system)
+  - Schema = structure of a database table.
+  - fixed relationship between tables
+  - Table Schemas and Relationships are defined in advance
+  
+  Row Databases
+  - Use row databases. Row databases interact with data based on rows
+  - Row databases are ideal if you are operating with rows (adding, updating, deleting)
+  - Often called Online Transaction Processing Databases (OLTP)
+  - OLTP is ideal for systems which are perfromring transactions
+  - 
+  
+NoSQL
+  - Not one single thing...different models
+  - more relaxed Schema
+  - relationships handled differently
+  
+  Key-Value Database
+    - No schema
+    - No structure
+    - scalable
+    - Really Fast
+    
+  Wide Column Store
+    - DynamoDB is an example 
+    - Each row has one or more keys. One of them is the partition key
+    - secondary key is the range key
+    - No attribute schema
+    - Every item inside a table a table has to use the same key structure and has to have a unique key
+  
+  Document Database
+    - Work best for scenarios like order databases or collections or contact style databases
+    - work best when interacting with the data as a document
+    - work best when you need to interact with deep attributes
+    
+  Column Databases
+    - Store data based on columns
+    - Columns are stored together.
+    - Ideal for reporting or when all values for a specific attribute (size) are required.
+    - Example of column database = AWS Redshift (data wearhouse)
+  
+  Graph Databases
+    - Great for Social media or HR systems
+    - Nodes are nouns/objects
+    - there are relationships between nodes known as edges.
+    - Edges have a name and a direction
