@@ -1,0 +1,6 @@
+Weighted Routing
+
+  - Useful for load balancing, or when you want to test new versions of software
+  - Allows you to associate multiple resources with a single domain name and choose how much traffic is routed to each resource
+  - Each record is returned based on the record weight vs the total weight
+  - if a chosen record is unhealthy, the process of selection is repeated until a healthy record is chosen
