@@ -1,0 +1,33 @@
+R53 Interoperability
+
+  - R53 normally has 2 jobs - Domain Registrar and Domain Hosting
+  - R53 can do both, or either Domain Registrar or Domain Hosting
+  - R53 accepts your money (domain registration fee)
+  - R53 allocates 4 Name Servers (NS) (domain hosting)
+  - R53 creates a zone file (domain hosting) on the above Name Server (NS)
+  - R53 communicates with the registry of the Top Level Domain (TLD) (Domain registrar
+  - Sets the Name Server (NS) records for the domain to point at the 4 Name Server (NS) above
+  
+R53 - Both Roles (Domain Registrar and Domain Hosting)
+
+  - Registers domain fee
+  - R53 Domain Registrar liaises with R53 Domain hosting - create public hosted zone
+  - 4x Name Servers (NS) returned
+  - Registration fee, 4x Name servers (NS) and domain name provided to registry
+  - Entry added in Top Level Domain (TLD), using Name Server (NS) delegation records pointing at the 4x Name servers (NS)
+  
+R53 - Registrar Only
+
+  - Registers domain fee
+  - The domain is registered via R53 but the Name Server (NS) records for the domain are set to externally hosted Name Servers (NS). Records are managed using 3rd party. Domain is managed via R53.
+  - Registration fee, 4x Name servers (NS) and domain name provided to registry
+  - Entry added in Top Level Domain (TLD), using Name Server (NS) delegation records pointing at the 4x Name servers (NS)
+  - Zone file and records within it are managed by the 3rd party
+
+R53 - Hosting Only
+
+  - Create a R53 Public Hosted zone for the domain.
+  - Pass the allocated Name Server (NS) details to the registrar (3rd party)
+  - Registration fee, 4x Name servers (NS) and domain name provided to registry
+  - Entry added in Top Level Domain (TLD), using Name Server (NS) delegation records pointing at the 4x Name servers (NS)
+  - Using the Registrar, Name Server (NS) records for the domain can also be updated after registration if you decide to host records via R53
