@@ -1,0 +1,10 @@
+Multi Value Routing
+
+  - allows you to configure Amazon R53 to return multiple values such as IP addresses for web servers, in response to DNS queries
+  - supports multiple records with the same name
+  - check the health of each resource. Returns values for healthy resources
+  - 8 healthy records are returned to the client. If more records exists, 8 records are randomly chosen
+  - each record is independent and have an associated health check
+  - any records which fail will not be returned when queried
+  - Multi value improves availability. It is not a replacement for load balancing
+  
