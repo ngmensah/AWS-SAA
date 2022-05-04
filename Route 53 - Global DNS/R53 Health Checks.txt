@@ -1,21 +1,28 @@
 R53 Health Checks
-  Monitor the health and performance of your web applications , web servers, and other resources.
-  Each health check can monitor the following:
-    Health of a specified resource
-    Status of other health checks
-    status of an Amazon CloudWatch alarm
-  Health checks are separate from, but are used by records
-  Located globally
-  check every 30s (every 10s costs extra)
-  The checks can be:
-    TCP - R53 establishes a connection with the endpoint. Needs to be successful within 10 secs
-    HTTP/HTTPS - establish connection with endpoint within 4 secs. Endpoint must respond with a status code in the 200 or 300 range within 2 secs after connecting.
-    HTTP/HTTPS with String Matching - establish connection with endpoint within 4 secs. Endpoint must respond with a status code in the 200 or 300 range within 2 secs after connecting. R53 health checker must receive the response from the endpoint within 2 secs
-  Endpoint is either Healthy or Unhealthy
-  3 types of Health checks:
-    Endpoint - assess the health of the endpoint
-    CloudWatch Alarm - reach to cloudwatch alarms. Can be configured separately and involve NOS or in-app tests
-    Checks of Checks (Calculated) - checks application wide health
-    Unhealthy record in sot returned in queries
-    if 18% of health checkers report as healthy, the health check is healthy
+
+  - Monitor the health and performance of your web applications , web servers, and other resources.
+  
+  - Each health check can monitor the following:
+      - Health of a specified resource
+      - Status of other health checks
+      - status of an Amazon CloudWatch alarm
+      
+  - Health checks are separate from, but are used by records
+  - Located globally
+  - check every 30s (every 10s costs extra)
+  
+  - The checks can be:
+      - TCP - R53 establishes a connection with the endpoint. Needs to be successful within 10 secs
+      - HTTP/HTTPS - establish connection with endpoint within 4 secs. Endpoint must respond with a status code in the 200 or 300 range within 2 secs after connecting.
+      - HTTP/HTTPS with String Matching - establish connection with endpoint within 4 secs. Endpoint must respond with a status code in the 200 or 300 range within 2 secs after connecting. R53 health checker must receive the response from the endpoint within 2 secs
+      
+  - Endpoint is either Healthy or Unhealthy
+  
+  - 3 types of Health checks:
+        - Endpoint - assess the health of the endpoint
+        - CloudWatch Alarm - reach to cloudwatch alarms. Can be configured separately and involve NOS or in-app tests
+        - Checks of Checks (Calculated) - checks application wide health
+        
+    - Unhealthy record in sot returned in queries
+    - if 18% of health checkers report as healthy, the health check is healthy
     
