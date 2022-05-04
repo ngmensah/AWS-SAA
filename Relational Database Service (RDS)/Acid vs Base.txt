@@ -1,0 +1,31 @@
+Acid vs Base
+
+  - ACID and BASE are DB transaction models
+  
+  - CAP Theorem - Consistency, Availability, Partition Tolerant (resilience) - Choose 2
+      - Consistency = Every read to a database will receive the most recent write or it will get an error
+      - Availability = Every request will receive a non error response but without the guarantee that it contains the most recent write
+      - Partition Tolerant = The system can be made of multiple network partitions and the system continues to operate even if there are a number of dropped messages or errors between network nodes
+      - CAP theorem states that "any database product is only capable of delivering a maximum of 2 of these different factors
+      
+  - ACID focuses on consistency
+  - BASE focuses on Availability
+  
+  - ACID
+  
+      - Means transactions are ATOMIC, CONSISTENT, ISOLATED, and DURABLE (A.C.I.D)
+      - ACID refers to any RDS databases (limits scaling)
+      - ATOMIC = ALL or NO components of a transaction SUCCEEDS or FAILS
+      - CONSISTENT = Transactions move the database from one valid state to another - nothing between is allowed
+      - ISOLATED = If multiple transactions occur at once, they don't interfere with each other. Each executes as if it's the only one
+      - DURABLE = Once committed, transactions are durable. Stored on non-volatile memory, resilient to power outages or crashes
+      
+      
+  - BASE
+  
+      - BASE = BASICALLY AVAILABLE, SOFT STATE, EVENTUALLY CONSISTENT
+      - BASICALLY AVAILABLE = READ and WRITE operations are available 'as much as possible' but without any consistency guarantees - (kinda, maybe)
+      - SOFT STATE = The database doesn't enforce consistency, this is offloaded onto the application/user
+      - EVENTUALLY CONSISTENT = If we wait long enough, reads from the system will be consistent
+      - BASE refers to DynamoDB. Highly scalable and consistent.
+      - BASE refers to NoSQL
