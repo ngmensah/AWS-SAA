@@ -1,5 +1,5 @@
 R53 Failover Routing
-  allows you to route traffic to a resource when the resource is healthy or to a different resource when the 1st resource is unhealthy
-  if the target of the health check is healthy, the primary record in used
-  if the target of the health check is unhealthy, any queries return the secondary record of the same name
-  Use case: use when you want to configure active passive failover
+  - allows you to route traffic to a resource when the resource is healthy or to a different resource when the 1st resource is unhealthy
+  - if the target of the health check is healthy, the primary record in used
+  - if the target of the health check is unhealthy, any queries return the secondary record of the same name
+  - Use case: use when you want to configure active passive failover
