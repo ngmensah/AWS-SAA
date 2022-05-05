@@ -1,0 +1,21 @@
+Databases on EC2
+
+Why you might run Databases on EC2:
+
+    - Access to the DB Instance OS
+    - Advanced DB Option tuning ... (DBROOT)
+    - Vendor demands
+    - DB or DB version AWS don't provide
+    - Specific OS/DB combination AWS don't provide
+    - Architecture AWS don't provide (replication/resilience)
+    - Decision makers who 'just want it'
+    
+Why you shouldn't run Database on EC2:
+
+    - Admin overhead - managing EC2 and DBHost
+    - Backup / DR Management
+    - EC2 is running on a single AZ
+    - Features - some of AWS DB products are amazing
+    - EC2 is ON or OFF - no serverless, no easy scaling
+    - Replication - skills, setup time, monitoring & effectiveness
+    - Performance - AWS invested time into optimization & features
