@@ -1,0 +1,16 @@
+RDS High-Availability (Multi AZ)
+
+    - No free tier - extra costs for standby replica
+    - Synchronous replication = Multi AZ
+    - Standby replica cannot be accessed directly
+    - All RDS access is via the single database instance CNAME, endpoint address. 
+    - Standby database cannot be accessed unless a failover in the primary database happens
+    - Failover takes 60 - 120 secs
+    - Multi AZ is in the same region only
+    - Backups taken from the standby database (removes performance impact)
+    - Failover can happen in the following situations:
+        - AZ outage
+        - Primary failure
+        - Manual failover
+        - Instance type change
+        - software patching
