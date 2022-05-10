@@ -1,0 +1,19 @@
+RDS Read-Replicas
+
+    - Asynchronous Replication = Read Replica
+    - Read Replicas = read only replicas for an RDS Instance
+    
+    - Performance Improvements
+        - 5x direct read-replicas per DB instance
+        - Each providing as additional instance of read performance
+        - Read-Replicas can have read-replicas - but lag starts to be a problem
+        - Provide global performance improvements
+        
+    - Availability Improvements
+        - Snapshots & Backups Improve RPO
+        - RTO's are a problem
+        - Read-Replicas offer near zero RPO
+        - Read-Replicas can be promoted quickly - low RTO
+        - Failure only - watch for data corruption
+        - Read-Replicas are Read only until they are promoted
+        - Offer Global availability improvements...global resilience
