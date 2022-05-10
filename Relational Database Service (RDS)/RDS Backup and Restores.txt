@@ -1,0 +1,40 @@
+RDS Backup & Restore
+
+RPO vs RTO
+
+RPO (Recovery Point Objective)
+
+    - Time between the last backup and the time of an incident
+    - Represents the maximum amount of data loss
+    - Influences technical solutions & cost
+    - Generally lower values cost more
+    
+RTO (Rocovery Time Objective)
+
+    - Time between the failure and when the system has fully recovered
+    - Influenced by process, staff, tech and documentation
+    - Generally lower values cost more
+    
+RDS Backups
+
+    - There are 2 types of backups in RDS:
+        - Automated Backups
+        - Manual Snapshots
+    
+    - Both use AWS Managed S3 buckets
+    
+    - Any data contained in backups is region resilient because in S3, data is replicated across multiple AWS AZ's in a region
+    
+    - RDS Backups occur form either:
+        - Single database instance (If Multi-AZ is disabled)
+        - Standby instance (If Multi-AZ is enabled)
+    
+    - First snapshot is FULL size of consumed data. Then Incremental afterwards
+    - Manual snapshots don't expire
+    - Transaction logs are written to S3 every 5 minutes
+    - RDS Retention period = 0 to 35 days
+    - RDS creates a NEW RDS Instance - new address
+    - Snapshots = single point in time, creation time
+    - Automated = any 5 minute point in time
+    - Backup is restored and transaction logs are 'replayed' to bring DB to desired point in time
+    - Restores aren't fast - Think about RTO
