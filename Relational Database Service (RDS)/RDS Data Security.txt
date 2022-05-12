@@ -1,0 +1,29 @@
+RDS Data Security
+
+    - SSL/TLS (in transit) is available for RDS, can be mandatory
+    - RDS supports EBS volume encryption - KMS
+    - Handled by HOST/EBS
+    - AWS or Customer Managed CMK generates data keys
+    - Data keys used for encryption operations
+    - Storage, Logs, Snapshots & replicas are encrypted
+    - encryption can't be removed
+    
+    - RDS MSSQL and RDS Oracle support Transparent Data Encryption (TDE)
+    - Encryption handled within the DB engine
+    - RDS Oracle supports integration with CloudHSM
+    - Much stronger key controls (even from AWS)
+    
+  At rest Encryption (KMS Encryption & TDE):
+    - With RDS Oracle - keys can be provided via CloudHSM - removing AWS from the chain of trust
+    - TDE is native DB engine encryption. Data is encrypted before leaving the instance
+    - KMS provides AWS or Customer Managed CMKs which are used to generate Data Encryption Keys (DEKs) for RDS
+    - DEKs loaded onto hosts as required
+    - Data is encrypted and decrypted by the host
+    - Snapshots of encrypted RDS instances are also encrypted using the same key
+    
+  IAM Authentication
+    - RDS Local DB account configured to use AWS Authentication token
+    - Policy attached to Users or Roles maps that IAM identity onto the local RDS user
+    - generate-db-auth-token - creates a token with 15 min validity which can be used in place of a DB user password
+    - Authorization is controlled by the DB Engine. Permissions are assigned to the local DB user. IAM is NOT used to authorize, only for authentication
+    
