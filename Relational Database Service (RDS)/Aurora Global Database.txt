@@ -1,0 +1,10 @@
+Aurora Global Database
+
+    - Good for Cross-Region Disaster Recovery and Business Continuity
+    - Good for Global read scaling - offers low latency performance improvements
+    - about 1 second or less replication between regions
+    - Replication is only 1 way - from primary to secondary region
+    - No impact on DB performance
+    - secondary regions can have 16 replicas
+    - can be promoted to Read/write
+    - Currently MAX 5 secondary regions
