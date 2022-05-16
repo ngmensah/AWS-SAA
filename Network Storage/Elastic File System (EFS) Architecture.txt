@@ -1,0 +1,46 @@
+Elastic File System (EFS)
+
+    - EFS is an implementation of Network File System (NFS) v4
+    - EFS Filesystem can be mounted on EC2 instances in Linux
+    - Devices can be mounted into folders in the hierarchy
+    - Data on the file systems shared between lots of Ec2 instances.
+    - EFS is a private service, via mount target inside a VPC.
+        - Mount Targets run from subnets inside a VPC
+        - Mount targets have an IP address
+    - Mount targets need to be in every AZ that a VPC uses for high availability.
+    - Can be accessed from on-prem - VPN or DX
+    - EFS can be accessed outside of a VPC using these hybrid networking products.
+    - EFS Filesystems use POSIX permissions
+        - POSIX Permissions = a standard for interoperability which is used in Linux
+    - EC2 instances use mount targets to connect to the EFS Filesystems
+    - EFS is for Linux ONLY
+    - Lifecycle Policies can be used to move data between classes
+    
+    
+    - EFS offers 2 performance modes:
+        - General Purpose
+            - Ideal for latency sensitive use cases, web servers, content management systems. 
+            - Can be used for home directories or general file serving
+            - General purpose = default for 99.9% of uses
+        - Max I/O
+            - suits applications that are highly parallel.
+            - applications or workload such as big data, media processing, scientific analysis can benefit using Max I/O
+            
+            
+    - EFS offers different Throughput modes:
+        - Bursting
+            - Works like gp2 volumes inside EBS
+            - scales with the size of the file systems
+            - the more data you store in the file system, the better the performance
+        - Provisioned
+            - can specify throughput requirements separately from the amount of data stored.
+            - More flexible
+            
+            
+    - EFS offers 2 storage classes:
+        - Standard
+            - used to store frequently accessed files.
+            - it is the default storage class
+        - Infrequent Access (IA)
+            - lower cost storage class
+            - used for storing things that are accessed infrequently
