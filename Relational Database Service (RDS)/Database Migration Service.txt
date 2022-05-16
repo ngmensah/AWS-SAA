@@ -1,0 +1,52 @@
+Database Migration Service (DMS)
+
+		- A managed database migration service
+		- Runs using a replication instance
+		- Source and Destination Endpoints point at Source and target databases
+		- One endpoint must be on AWS
+		
+		- Common DB Support
+				- MySQL
+				- Aurora
+				- Microsoft SQL
+				- MariaDB
+				- MongoDB
+				- PostgreSQL
+				- Oracle
+				- Azure SQL
+				
+		- Replication instance within DMS can define replication tasks
+		- Replication instance performs the migration between SOurce and Destination endpoints which store connection information for source and target databases
+		
+		- There are 3 types of jobs in DMS:
+				- Full Load Migration (one off migration of all data)
+				- Full Load + Change Data capture (CDC) - for ongoing replication which captures changes
+				- Change Data capture (CDC) only - used if you want to use an alternative method to transfer the bulk DB data such as native tooling
+				
+Schema Conversion tool (SCT)
+
+		- Can assist with Schema Conversion
+		- Used when converting one database engine to another
+		- It can be used as part of migrations where the engines being migrated from and to aren't compatible
+		- It can be used for larger migrations
+		- Including DB -> S3 (Migrations using DMS)
+		- SCT is not used when migrating between DB's of the same type/engine
+				- Example: On-prem MySQL -> RDS MySQL
+		- SCT works with OLTP DB types (MySQL, MSSQL, Oracle)
+		- SCT works with OLAP DB types (Teradata, Oracle, Vertica, Greenplum etc)
+		
+		- Examples of where SCT would be used:
+				- On-Prem MSSQL -> RDS MySQL
+				- On-Prem Oracle -> Aurora
+				
+DMS & Snowball
+
+		- Larger migrations might be multi-TB in size
+		- moving data over networks takes time and consumes capacity
+		- DMS can utilize snowball
+			- Step 1: Use SCT to extract data locally and moce to a snowball device
+			- Step 2: Ship the device back to AWS. They load onto an S3 bucket
+			- Step 3: DMS migrates from S3 into the target store
+			- Step 4: Change Data Capture (CDC) can capture changes, and via S3 intermediary they are also written to the target database.
+			
+		- * SCT is only used for migrations when the engine is changing.*
