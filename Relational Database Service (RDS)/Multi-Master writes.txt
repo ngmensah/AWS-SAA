@@ -1,0 +1,7 @@
+Multi-Master writes
+
+    - Default Aurora mode is single-Master
+    - 1 Read/write and 0+ read only replicas
+    - cluster endpoint is used to write, read endpoint is used for load balanced reads
+    - failover takes time - replica promoted to read/write
+    - in multi-master mode all instances are read/write
