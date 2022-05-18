@@ -1,0 +1,47 @@
+Regional and Global AWS Architecture
+
+Global:
+    - Global Service Location & Discovery
+    - Content Delivery (CDN) and potimization
+    - Global Health checks & Failover
+    
+Regional:
+    - Regional entry point
+    - Scaling & Resilience
+    - Application services and components
+    
+    
+  - Globally, DNS is used for service discovery and regional based health checks and request routing
+  - CDN's are used to cache content globally - as close to end users as possible to improve performance
+
+Web Tier:
+    - Regional Based
+    - Application Load balancer
+    - API Gateway
+    - Acts as an entry point for regional applications or application components
+
+Compute Tier:
+    - EC2
+    - Lambda
+    - Elastic Container Service (ECS)
+    
+Storage Tier:
+    - Elastic Block Storage (EBS)
+    - Elastic File System (EFS)
+    - S3 (Cloudfront is able to use S3 as an orgin of media)
+    
+DB Tier
+    - RDS
+    - Aurora
+    - DynamoDB
+    - Redshift
+    
+Caching Tier:
+    - Elasticache (General caching)
+    - DynamoDB Accelerator (DAX) 
+    
+Application Services:
+    - Kinesis, 
+    - Stop Functions
+    - SQS
+    - SNS
