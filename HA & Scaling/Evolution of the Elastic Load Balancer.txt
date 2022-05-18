@@ -1,0 +1,9 @@
+Evolution of the Elastic Load Balancer
+
+    - 3 types of load balancers (ELB) available within AWS
+    - Split between version 1 (avoid/migrate) and version 2 (prefer)
+    - Classic Load Balancer (CLB - version 1 - introduced in 2009
+    - Not really layer 7, lacking features, 1 SSL per CLB
+    - Application Load Balancer (ALB) - version 2 - HTTP/S/WebSocket
+    - Network Load Balancers (NLB) - version 2 - TCP, TLS & UDP
+    - Version load balancer = faster, cheaper, support target groups and rules
