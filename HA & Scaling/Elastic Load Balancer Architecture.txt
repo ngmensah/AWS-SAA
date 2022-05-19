@@ -1,0 +1,11 @@
+Elastic Load Balancer Architecture
+
+    - Cross-Zone Load Balancing - the ability to distribute or load balance across AZ's
+    - ELB is a DNS A record pointing at 1+ Nodes per AZ
+    - Nodes (in one subnet per AZ) can scale
+    - Two types of load balancers
+        - Internet-facing - means nodes have public IPv4 IP's
+        - Internal Load Balancer - Private only IP's
+    - EC2 doesn't need to be public to work with a internet-facing load balancer
+    - Listener Congfigurations controls what the Load Balancer does
+    - 8+ free IP's per subnewt, and /27 subnet to allow scaling
