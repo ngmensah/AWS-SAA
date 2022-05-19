@@ -1,0 +1,21 @@
+Launch Configurations and Launch Templates provide the WHAT to Auto scaling groups.
+They define WHAT gets provisioned
+
+Launch Configurations and Launch Templates Concepts
+
+    - Allow you to define the configuration of an EC2 instance in advance
+    - Allow you to configure things like AMI, Instance type, storage & key pair
+    - Allow you to define Networking configurations and security groups
+    - Let you configure Userdata & IAM Role
+    - Both are not editable. Can only define once. Launch templates has versions.
+    - Launch templates provide newer features such as:
+        - T2/T3 Unlimited
+        - Placement Groups
+        - Capacity Reservations
+        - Elastic Graphics
+        
+Launch Configurations and Launch Templates Architecture
+
+    - Launch configurations are used as part of Auto Scaling groups
+    - Launch configurations are not editable and do not have versioning.
+    - Launch templates can be used to save time when provisioning EC2 instances from the console UI/CLI
