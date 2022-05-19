@@ -1,0 +1,49 @@
+Load Balancer Consolidation
+
+    - Classic Load Balancer (CLB) doesn't scale...every unique HTTPS name requires an individual CLB because SNI isn't supported
+    - Version 2 load balancers support rules and target groups. Host based rules using SNI and an ALB allows consolidation
+    
+    
+Application Loiad Balancer (ALB)
+
+    - Layer 7 Load Balancer...listens on HTTP and or HTTPS
+    - No other Layer 7 protocols (SMTP, SSH, Gaming etc)
+    - Cannot listen on TCP/UDP/TLS
+    - Layer 7 content type, cookies, custom headers, user location and app behavior
+    - HTTP HTTPS (SSL/TLS) always terminated on the ALB - no unbroken SSL (security teams)
+    - a new connection is made to the application
+    - ALB's must have SSL certs if HTTPS is used
+    - ALB's are slower than NLB's...more levels of the network stack to process
+    - Health checks evaluate application health....layer 7
+    
+Application Loiad Balancer (ALB) - Rules
+
+    - Rules direct connections which arrive at a listener
+    - Rules are processed in priority order
+    - Default rule = catchall
+    - Rule conditions: host-header, http-header, http-request-method, path-apttern, query-string & source-ip
+    - Actions: forward, redirect, fixed-response, authenticate-oidc & authenticate-cognito
+    
+    
+Network Load Balancers (NLB)
+
+    - NLB's function at layer 4. They can interpret TCP, TLS, UDP, TCP_UDP
+    - No visibility or understanding of HTTP or HTTPS
+    - No headers, no cookies, no session stickiness
+    - Really fast (millions of rps, 25% of ALB latency)
+    - They deal with SMTP, SSH, Game Servers, financial apps (not http/s)
+    - Health checks just check ICMP/TCP handshake....they are not application aware
+    - NLB's can have static IP's - useful for whitelisting
+    - NLB's can forward TCP straight to instances
+    - NLB's and TCP listeners is how you can do unbroken end to end encryption
+    - NLB's are used with private link to provide services to other VPCs 
+    
+    
+    ALB vs NLB
+    
+        - Unbroken encryption = NLB
+        - Static IP for whitelisting = NLB
+        - The fastest performance = NLB (millions rps)
+        - Protocols not http or https = NLB
+        - Privatelink = NLB
+        - Otherwise = ALB
