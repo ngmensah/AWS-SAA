@@ -1,3 +1,32 @@
   An Auto Scaling group contains a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. 
   An Auto Scaling group also enables you to use Amazon EC2 Auto Scaling features such as health check replacements and scaling policies. 
   Both maintaining the number of instances in an Auto Scaling group and automatic scaling are the core functionality of the Amazon EC2 Auto Scaling service.
+
+Auto-Scaling Groups
+
+    - Automatic Scaling and Self-healing for EC2
+    - Use Launch templates or launch configurations
+    - Has a minimum, Desired and maximum size (e.g 1:2:4)
+    - Auto-scaling keeps running instances at the desired capacity by provisioning or terminating instances
+    - Scaling policies automate based on metrics
+    - Scaling policies automatically adjust the Desired capacity between the MIN and MAX values
+    
+Scaling Policies
+
+    - There are 3 ways to scale Auto Scaling Groups:
+        - Manual Scaling - Manually adjust the desired capacity
+        - Scheduled Scaling - Time based adjustment - (e.g. Sales)
+        
+        - Dynamic Scaling (3 sub types). The sub types are rules which react to something and change the value on an Auto Scaling Group
+            - Simple Scaling - "CPU above 50% +1", "CPU Below 50 -1" (Example = CPU Utilization)
+            - Stepped Scaling - Bigger +/- based on difference
+            - Target Tracking - Desired Aggregate CPU = 40% Auto Scaling Group handles it
+            
+        - Cooldown Period - a value in seconds. It controls how long to wait at the end of a scaling action before doing another.
+        
+
+Auto-Scaling Groups + Load balancers
+
+    - Auto-Scaling Group instances are automatically added to or removed from the target group
+    - Auto-scaling groups can use the load balancer health checks rather than EC2 status checks Application Awareness
+        
