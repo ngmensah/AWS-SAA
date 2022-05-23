@@ -1,0 +1,8 @@
+ASG Scaling Policies
+
+    - ASG's don't need scaling policies - they can have none
+    - Manual - Min, Max & desired - testing & urgent
+    - Simple Scaling
+    - Step Scaling
+    - Target Tracking
+    - Scaling based on SQS - ApproximateNumberOfMessagesVisible
