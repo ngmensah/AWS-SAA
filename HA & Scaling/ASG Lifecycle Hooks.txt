@@ -1,0 +1,9 @@
+ASG Lifecycle Hooks
+
+    - Allow you to configure custom actions on instances during ASG actions
+        - Instance launch or instance terminate tranistions
+    - instances are paused within the flow..they wait:
+        - until a timeout (then either continue or abandon)
+        - or you resume the ASG process CompleteLifecycleAction
+    - EventBridge or SNS Notifications
+ 
