@@ -1,0 +1,10 @@
+ASG Health Checks
+
+    - 3 types of health checks for ASG:
+        - EC2 (Default) - Stopping, Stopped, Terminated, Shutting Down or Impaired (not 2/2 status) = UNHEALTHY
+        - ELB (Can be enabled) - HEALTHY = Running & passing ELB health check
+            - can be more application aware (layer 7)
+        - Custom - Instances marked healthy & unhealthy by external system
+        - Health check grace period (Default 300s) - Delay before starting checks
+            - allows system launch, bootstrapping and application start
+        
