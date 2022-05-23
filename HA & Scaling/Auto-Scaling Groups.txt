@@ -29,4 +29,23 @@ Auto-Scaling Groups + Load balancers
 
     - Auto-Scaling Group instances are automatically added to or removed from the target group
     - Auto-scaling groups can use the load balancer health checks rather than EC2 status checks Application Awareness
-        
+    
+Scaling Processes
+
+    - Launch and Terminate - Suspend and Resume
+    - AddToLoadBalancer - add to Load Balancer on launch
+    - Alarm Notification - accept notification from Cloud Watch
+    - AZRebalance - Balance instances evenly across all of the AZ's
+    - HealthCheck - instance health checks on/off
+    - ReplaceUnhealthy - Terminate unhealthy and replace
+    - ScheduledActions - Scheduled on/off
+    - Standby - use this for instance 'InService vs Standby'
+    
+Final Points
+
+    - Autoscaling groups are free
+    - only the resources created are billed
+    - use cool downs to avoid rapid scaling
+    - think more, smaller instances - granularity
+    - use with Application Load Balancers for elasticity - abstraction
+    - Autoscaling Groups define WHEN and WHERE, Launch Templates define WHAT
