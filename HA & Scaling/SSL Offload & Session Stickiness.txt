@@ -1,0 +1,46 @@
+SSL Offload & Session Stickiness
+
+    - There are 3 ways that a load balancer (ELB) can handle secure connections (SSL):
+    
+        - Bridging (default)
+            - one or more clients makes one or more connections to a load balancer
+            - Listener is configured for HTTPS
+            - Connection is terminated (decrypted) on the ELB & needs a SSL certificate for the domain name
+            - ELB initiates a new SSL connection to backend EC2 instances.
+            - Instances needs SSL certificates and the compute required for cryptographic operations.
+            - Positive - ELB gets to see the unencrypted HTTP and can take actions based on what's contained in the plain text protocol.
+            - Negative - The SSL certificate needs to be stored on the load balancer itself, which is a risk.
+            
+        - Pass-through
+            - The client connects, but the load balancer just passes that connection along to one of the back end instances.
+            - It doesn't decrypt at all. The encrypted connection is maintained between the client and the back end instances.
+            - Each instance needs to have the appropriate SSL certification installed.
+            - With this architecture, there is no certificate exposure to AWS. All self-managed and secured.
+            - A network load balancer is able to perform this style of connection architecture.
+            - *Listener is configured for TCP.* - It can see the source and destination IP addresses and ports.
+            - No encryption or decryption happens on the Network load balancer
+            - Connection is passed to backend instance.
+            
+        - Offload
+            - Clients connect to the load balancer in the same way using HTTPS.
+            - The connections use HTTPS and terminiated on the load balancer
+            - Listener is configured for HTTPS.
+            - Connections are terminated and then backend connections use HTTP
+            - Connection from the ELB to the EC2 instance use HTTP - no certificate or cryptographic requirements
+            - Negative - data is in plaintest form across AWS network.
+            
+            
+Connection Stickiness
+
+    - Stickiness generates a cookie (AWSALB) which locks the device to a single backend instance for a duration (valid duration = 1 second -> 7 days)
+    - Everytime a single user accesses the application, the cookie is provided along with the request.
+    - For one particular cookie, sessions will be sent always to the same back end instace.
+    - With no stickiness connections, sessions are distributed across all in-service backend instances. 
+    - Unless application handles user state, this could cause user logoffs shopping cart losses.
+    - Sending sessions to the same server takes place until one of two things occur:
+        - Server failure - user will be moved to a different instance
+        - cookies can expire - when cookie expires, the session starts again and user will receive a new cookie and be allocated a new backend instance.
+        
+    - Session stickiness is designed to allow an application to function using a load balancer, if the state of the user session is stored on an individual server.
+    - Session stickiness can cause uneven load on back end servers because a single user will only ever use one single server.
+        
