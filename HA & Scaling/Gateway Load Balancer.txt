@@ -1,0 +1,12 @@
+Gateway Load Balancer
+
+    - GWLB helps you run and scale 3rd party appliances.
+        - Examples of 3rd party appliances include: Firewalls, IDS, IPS
+    - GWLB are used for inbound and outbound traffic (transparent inspection and protection)
+    - GWLB has two major components:
+        - GWLB Endpoints - traffic enters/leaves via these endpoints
+        - GWLB itself - balances across multiple backend appliances
+    - GWLB use a protocol called GENEVE.
+        - GENEVE is a tunneling protocol where a tunnel is created between the GWLB and the backend instances.
+        - Packets are encapsulated and sent through this tunnel to the appliances
+    - Ingress (gateway) route table directs any traffic destined for the Application Load Balancer subnets at the Gateway Endpoint in the same AZ.
