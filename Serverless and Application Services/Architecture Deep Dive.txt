@@ -1,0 +1,19 @@
+Event-Driven Architecture
+
+    - No constant running or waiting for things
+    - Producers generate events when something happens. Examples of events include:
+        - clicks
+        - errors
+        - criteria met
+        - uploads
+        - actions
+    - Events are delivered to consumers
+        - actions are taken and the system returns to waiting
+    - Mature event driven architecture only consumes resources while handling events (serverless)
+    
+    
+Microservice Architecture - a collection of microservices
+    
+    - Process
+    - Upload
+    - Store and Manage
