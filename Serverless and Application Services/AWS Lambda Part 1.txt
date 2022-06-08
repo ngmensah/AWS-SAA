@@ -1,0 +1,60 @@
+AWS Lambda
+
+    - Function-as-a-service (FaaS) - short running and focused
+    - Lambda function - a piece of code that lambda runs
+    - Every lambda function uses a supported function runtime. (Example of runtime = Python 3.8)
+    - Lambda functions are loaded and run in a runtime environment
+    - The environment has a direct memory (indirect CPU) allocation
+    - You are billed for the duration that a function runs
+    - Lambda is a key part of Serverless architecture
+    
+    
+Common Runtimes:
+  - Python
+  - Ruby
+  - Java
+  - GO
+  - C#
+  - NodeJS
+
+
+Lambda in-depth:
+
+- Docker is not supported (anti pattern) for the exam.
+- Custom runtimes such as Rust are possible using layers
+- Lambda functions are stateless = no data is left over from a previous invocation
+- New lambda function = new invocation/new Runtime Environment
+- Memory = 128MB to 1024MB in 1MB steps
+- You directly control the memory allocated for the Lambda functions whereas vCPU is allocated indirectly
+- 1769MB gives you 1 vCPU of allocation
+- Disk space allocation = 512MB storage available as /tmp (tempoary space)
+- Lambda functions run for 900 secs (15 mins) = function timeout
+    - anything longer than 15 mins can't use lambda directly
+- Security for a Lambda function is controlled using execution roles
+- Execution roles = IAM roles assumed by the lambda function. Provides permission to interact with AWS products/services
+
+
+Lambda Common Uses:
+
+    - Deliver Serverless Applications
+        - S3
+        - API Gateway
+        - Lambda
+        
+    - File Processing (Example = Watermarking images)
+        - S3
+        - S3 Events
+        - Lambda
+        
+    - Database Triggers
+        - DynamoDB
+        - Streams
+        - Lambda
+        
+    - Serverless CRON
+        - EventBridge/Cloud Watch Events
+        - Lambda
+        
+    - Realtime Stream Data Processing
+        - Kinesis
+        - Lambda
