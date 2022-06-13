@@ -1,0 +1,29 @@
+Public Lambda
+
+    - By default lambda functions are given public networking. They can access public AWS services and the public internet.
+    - Public networking offers the best performance because no customer specific VPC networking is required.
+    - Lambda functions have no access to VPC based services unless public IPs are provided & security controls allow external access.
+
+
+Private Lambda
+
+    - Lambda functions running in a VPC obey all VPC networking rules
+    - Lambda functions within a VPC can't access services outside of the VPC unless it is configured to access public services.
+        - NAT Gateway and Internet Gateway are required for VPC Lambdas to access internet resources
+    - VPC endpoints can provide access to public AWS services
+    - Lambda needs EC2 network permissions via the execution role
+    
+    
+Lambda Security
+
+    - Lambda execution roles are IAM roles attached to lambda functions which controls the PERMISSIONS the lambda function RECEIVES
+    - Lambda resource policy controls WHAT services and accounts can INVOKE lambda functions
+    
+    
+Lambda Logging
+
+    - Lambda uses Cloudwatch, Cloudwatch logs & X-Ray
+    - Logs from Lmabda executions go into CloudWatchLogs
+    - Any metrics such as invocation success/failure, retries, latency are stored in CloudWatch
+    - Lambda can be integrated with X-Ray for distributed tracing
+    - Cloudwatch Logs require permissions via Execution Role
