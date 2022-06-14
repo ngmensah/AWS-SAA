@@ -1,0 +1,65 @@
+Invocation
+
+    - There are 3 ways to invoke a lambda function
+        1. Synchronous Invocation
+        2. Asynchronous Invocation
+        3. Event Source mappings
+        
+        
+Synchronous Invocation
+
+CLI/API:
+    - CLI/API invokes a lambda function, passing in data and wait for a response
+    - Lambda function responds with data or with a faliure
+    
+Clients:
+    - Clients communicates with API Gateway
+    - Proxied to lambda function
+    - Lambda function responds or fails
+    - Response back to client
+    
+- Result (success or failure) returned during the request
+- Errors or Retries have to be handled within the client
+
+
+
+Asynchronous Invocation
+
+    - It is typically used when AWS services invoke lambda functions
+    - If processing if the event fails, lambda will retry between 0 to 2 times (configurable). Lmabda handles the retry logic
+    - The Lambda function needs to be idempotent reprocessing a result should have the same end state.
+    - Events can be sent to dead letter queues after repeated failed processing
+    - Lambda supports destinations (SQS, SNS, Lambda & EventBridge) where successful or failed events can be sent.
+
+
+
+Event Source mappings
+
+    - Typically used on streams or queues which don't support event generation to invoke lambda (Kinesis, DynamoDB streams, SQS)
+    - Event source mappings read/poll from the stream or queue and deilver event batches to lambda. Event batches are processed SUCCESSFULLY or FAIL as a batch
+    - Permissions from the lambda execution role are used by the event source mapping to interact with the event source.
+    - SQS Queues or SNS topics can be used for any discarded failed event batches
+
+
+
+
+Lambda Versions
+
+    - Lambda functions have versions - v1, v2, v3 etc
+    - a version is the code PLUS the configuration of the lambda function
+    - When you publish a version, it is immutable = it never changes once published & has its own Amazon Resource Name
+    - $latest points at the latest version of the lambda function
+    - Aliases (DEV, STAGE, PROD) can point at a version = it can be changed (Not Immutable)
+    
+    
+    
+Lambda Start-up Times
+
+    - An execution context is the environment a lambda function runs in
+    - A cold start is a full creation and configuration including function code download.
+        - Takes about 100ms
+    - With a warm start, the same execution context is reused. 
+    - A new event is passed in but the execution context creation can be skipped.
+    - A lambda invocation can reuse an execution context but has to assume it can't.
+    - If used infrequently contexts will be removed. 
+    - Concurrent executions will use multiple (potentially new) contexts.
