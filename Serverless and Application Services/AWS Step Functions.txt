@@ -1,0 +1,34 @@
+AWS Step Functions
+
+    - Step Functions allow you to create state machines
+    - State machines are a serverless workflow that have a start and an end with STATES inbetween.
+        - Serverless workflow = START -> STATES -> END
+    - States are things that occur
+    - The maximum duration for state machines are 1 year
+    - The 2 types of workflows within step functions
+        - Standard Workflow - This is the default workflow. It has a 1 year execution limit
+        - Express Workflow - Designed for high volume high processing workloads like IOT, streaming, mobile applications
+            - Run for up to 5 mins
+    - State amachines can be started using API Gateway, IOT Rules, EventBridge, Lambda
+    - Amazon States Language (ASL) - JSON Template
+    - IAM Roles are used for permissions
+    
+States
+
+    - Succeed & Fail
+    - Wait - Will wait for a specific date/time or for a duration of time
+    - Parallel - Actions/events taking place at the same time. Choice state leads to Parallel state
+    - Choice - Can take a different path depending on the input
+    - Map - Performs actions or a list of actions
+    - Task - A single unit of work performed by a state machine. Allows you to perform actions.
+        - Tasks can be integrated with many different services:
+            - Lambda
+            - Batch
+            - DynamoDB
+            - ECS
+            - SNS
+            - SQS
+            - Glue
+            - SageMaker
+            - EMR
+            - Step Functions
