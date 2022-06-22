@@ -1,0 +1,16 @@
+Simple Notification Service (SNS)
+
+    - SNS is a public AWS service - network connectivity with public endpoint
+    - Coordinates the sending and delivery of messages
+    - The size of the messages go up to 256KB payloads
+    - SNS Topics = base entity of SNS
+        - In SNS topics, pewrmissions are controlled and configurations are defined
+    - A publisher sends messages to a TOPIC
+    - Subscribers receive messages within Topics.
+    - Messages are sent in the form of HTTP(s), Email (JSON), SQS, Mobile Push, SMS Messages & Lambda
+    - SNS is used across AWS for notifications (Example = CloudWatch, CloudFormation, Auto-Scaling Groups)
+    - SNS is a High Availability and Scalable service (Scalable within a region)
+    - SNS supports delivery status (HTTP, Lambda, SQS)
+    - SNS supports delivery retries - delivery reliability
+    - SNS is capable of Server-Side Encryption (Data can be stored on disk for disk encryption)
+    - Can be used across accounts via Topic Policy (Topic Policy is similar to resource policy)
