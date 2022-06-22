@@ -1,0 +1,14 @@
+CloudWatch Events and EventBridge Key Concepts
+
+    - If X happens, or at Y time(s).....do Z
+    - EventBridge is the new CloudWatch Events
+    - A default Event Bus for 1 account
+    - In cloudWatch Events, there is only 1 Event Bus
+    - EventBridge can have more that 1 event bus
+    - Rules match incoming events (or schedules)
+        - Event Pattern Rule - match particular patterns of the event themselves
+        - Scheduled-based rules - pattern matching rules that match a certain date and time (CRON format).
+    - Route the events to 1 or more targets (Example = Lambda function)
+    - Event Bus = a stream of events coming from supported AWS services
+    - EventBridge monitors all the events within the event bus
+    - Events within the event bus are JSON structures
