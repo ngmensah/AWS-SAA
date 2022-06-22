@@ -1,0 +1,12 @@
+Serverless Architecture
+
+    - Manage few if any servers = low overhead
+    - Serverless isn't just one thing
+    - Applications are a collection of small and specialized functions. 
+    - Applications run in either stateless or ephemeral environments
+    - Serverless is only event driven. When it is used, it consumes resources (?)
+    - FaaS (Function as a Service) is used where possible for compute functionality
+    - Managed services are used where possible
+    
+    - Serverless is pretty much using a collection of services (managed services where possible) as another way to do things.
+        - This is done without using EC2 for compute services.
