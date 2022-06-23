@@ -1,0 +1,85 @@
+API Gateway
+
+    - API Gateway creates and manages APIs
+    - They are the endpoint/entry point for applications
+    - It sits between applications and integrations (services)
+    - API is highly available and scalable.
+    - Delivered as a managed service
+    - Handles Authorization - you can define who has access to the APIs using API Gateway
+    - Handles throttling - how often users can use APIs
+    - can perform caching - reduce the amount that your backend services are called
+    - Supports CORS - control security of cross domain calls within browsers
+    - Supports transformations
+    - Supports OpenAPI spec - create definition files for APIs
+    - Supports direct integration with AWS services (Example: DynamoDB, Step Function, SNS)
+    - Can connect to services/endpoints in AWS or on-prem
+    - Provide APIs that use HTTP, REST, and Websocket APIs
+    
+    
+API Gateway - Overview
+
+    - API Gateway is an intermediary between clients and integrations (services that provide functionality to API gateway)
+    
+    - 3 phases in the API Gateway interactions:
+        - Request - Client makes request to the API Gateway. The request phase does 3 things:
+            - Authorizes
+            - Validates
+            - Transforms
+        - Integrations - the services receive the request.
+        - Response - Request is sent back to the client. The response phase does 3 things:
+            - Transform
+            - Prepare
+            - Return
+        
+        - CloudWatch logs can store and manage full stage request and response logs.
+        - CloudWatch can store metrics for client and integration sides
+        - API Gateway Cache can be used to reduce the number of calls made to backend integrations and improve client performance.
+        
+        
+API Gateway - Authentication
+
+    - API Gateway can authenticate with Cognito and receive token.
+    - Token is passed to API Gateway with request. Token is verified with Cognito
+    
+Lambda based authorization
+
+    - Client calls API gateway with a bearer token (ID)
+    - Lambda authorizer is called. 
+    - Call to ID provider or compute based check of ID
+    - IAM policy and principal identifier is sent back to the API Gateway
+    - Request is handled via lambda integration or returns 403 ACCESS_DENIED to client
+    
+API Gateway - EndPoint Types
+
+    - Edge-Optimized - Routed to the nearest CloudFront Point of Presence (POP)
+    - Regional - clients in the same region
+    - Private - Endpoint is only accessible within a VPC via interface endpoint
+    
+API Gateway - Stages
+
+    - APIs are deployed to stages. Each stage has one deployment
+    - Stages can be anables for canary deployments. If done, deployments are made to thte canary not the stage.
+        - Canary = sub part of the stage
+    - Stages enabled for canary deployments cane be configured so a certain percentage of traffic is sent to the canary.
+        - This can be adjusted over time or the canary can be promoted to make it the nwe base "stage"
+        
+        
+API Gateway - Errors *REMEMBER FOR EXAM*
+
+    - 4XX - client Error = Invalid request on the client side
+    - 5XX - Server Error = Valid request but there is a backend issue
+    - 400 - Bad request - Generic
+    - 403 - Access Denied - Authorizer denies. WAF denies
+    - 429 - API Gateway can throttle - this means you've exceeded that amount
+    - 502 - Bad Gateway Exception - bad output returned by lambda
+    - 503 - Service Unavailable - backing endpoint offline? Major service issues
+    - 504 - Integration Failure/Timeout - 29 seconds limit
+    
+    
+API Gateway - Caching
+
+    - Cache is defined per stage within API Gateway
+    - Cache TTL defualt is 300 seconds
+    - Configurable minimum = 0 and max = 3600 secs
+    - Can be encrypted *REMEMBER FOR EXAM*
+    - Cache size = 500MB to 237 GB
