@@ -1,0 +1,26 @@
+Kinesis Data Streams
+
+    - Kinesis is a scalable streaming service
+    - Producers send data intoa kinesis stream
+    - Streams can scale from low to near infinite data rates
+    - It is a public service and highly available by design
+    - Streams store a 24-hour moving window of data. Goes up to 7 days = more cost $$
+    - Multiple consumers access data from that moving window
+    - Shards are used within streams.
+        - Shards have 1MB of ingestion capacity
+        - Shards have 2MB of  Consumption capacity
+    - data is stored on a stream via Kinesis Data record (1MB = max size)
+    - Kinesis data Firehose - connects to a kinesis stream. It can move large amounts of data onto another AWS service like S3
+    
+    
+SQS vs Kinesis
+
+    - When the question mentions:
+        - Ingestion of data = Kinesis
+        - Worker Pools decoupling = SQS
+        - asynchronous communication = SQS
+    - SQS 1 production group, 1 comsumption group
+    - SQS = no persistence of messages, no window
+    - Kinesis = huge scale ingestion of data
+        - designed for multiple consumers. Has rolling window.
+    - Kinesis = Data ingestion, Analytics, Monitoring, App Clicks
