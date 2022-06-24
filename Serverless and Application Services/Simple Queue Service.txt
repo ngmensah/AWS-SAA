@@ -1,0 +1,32 @@
+Simple Queue Service
+
+    - Public service
+    - Fully Managed
+    - Highly available queues
+    
+    - SQS comes in 2 types
+        - Standard - Best efforts with the possibility of messages being received out of order.
+            - Guarantee at least once delivery
+        - FIFO (First In First Out) - guarantee order of the queue. If messages come into the queue as "1,2,3" they will be received as "1,2,3"
+            - Guarantee exactly once delivery
+            - 3000 messages per second with batching
+            - 300 messages per second without batching
+            - Don't scale as well. Performance focused.
+            
+    - Messages added to a queue can be up to 256KB in size.
+        - Anything larger than 256KB can be linked to S3
+    - Messages that are received are hidden (VisibilityTimeout = the amount of time a message is hidden)
+        - If the message is not deleted, the message will re-appear in the queue (default action)
+    - Dead letter queue - this is where problem messages can be moved to.
+    - Auto-Scaling Groups (ASGs) can scale and Lambdas invoke based on queue length
+    - Billed based on "requests"
+    - 1 request = 1-10 messages up to 256KB total
+    - Short Polling (immediate)
+        - Uses 1 request
+    - Long Polling (waitTimeSeconds) 
+        - waits up to 20 seconds
+        - 10 messages up to 64KB will count as 1 request
+        - Encryption at rest using KMS & in transit (Server side encryption)
+        - Queue Policy 
+            - control of who has access to the queue.
+            - can only allow access from external accounts
