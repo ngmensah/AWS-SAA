@@ -1,0 +1,26 @@
+Kinesis Data Firehose
+
+    - Fully managed service to load data for data lakes, data stored and analytics services
+    - Automatic scaling. fully serverless. Resilient
+    - Near real time delivery (~60 seconds) *REMEMBER FOR EXAM*
+    -  Supports transformation of data on the fly (lambda)
+    - Billing - volume throught firehose
+    - Can deliver data to: *(REMEMBER FOR EXAM)*
+        - HTTP endpoints
+        - Splunk
+        - Redshift
+        - ElasticSearch
+        - S3
+    - Kinesis streams are realtime ~200ms
+    - Producers can send records to data streams or send directly at firehose.
+    - Firehose can also read from a data stream as a consumer
+    - Firehose offers near realtime delivery.
+        - delivery when buffer size in MB (1) fills or buffer interval in seconds (60) passes
+    - Firehose can't be a real time solution...only near real time *REMEMBER FOR EXAM*
+    - Delivery to Redshift uses S3 as an intermediate
+   
+Use Cases
+
+    - provide persistence to data
+    - providing permanent storage
+    - store data into a different format
