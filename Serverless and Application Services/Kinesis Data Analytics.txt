@@ -1,0 +1,17 @@
+Kinesis Data Analytics
+
+    - Real time data processing product using Structured Query Language (SQL)
+    - Takes in data from kinesis data stream for Firehose
+    - Kinesis Data Analytics can send data to Firehose (including destinations that firehose supports (Splunk, Redshift, ElasticSearch, S3))
+        - When sending data to Firehose, data becomes near real time instead of real time
+    - Directly supports AWS Lambda and Kinesis Data Streams
+    - The Kinesis Analytics Application has application code.
+    - Application code processes inputs and produces outputs
+    - Source Stream (Kinesis Stream/Firehose) + Reference Data (S3 Bucket) --> In-application input stream/Reference Table --> SQL Statement --> In-application output streams --> Destination stream (Kinesis Stream/Firehose) --> Consumers
+    
+Use Cases
+
+    - Used for streaming data needing real-time SQL processing
+    - Time-series analytics (elections / e-sports)
+    - real-time dashboards (Leaderboards for games)
+    - Real-time metrics (Security & response teams)
