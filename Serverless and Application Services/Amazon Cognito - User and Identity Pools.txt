@@ -1,0 +1,25 @@
+Amazon Cognito - User and Identity Pools
+
+    - Provides Authentication, Authorization and User management for web/mobile apps
+    
+    - USER POOLS = Sign-in and get a JSON Web Token (JWT)
+        - JWT used for authentication for applications
+        - User Pools control sign-in and deliver a JWT
+        - Provide User directory management and profiles, sign-up & sign-in (customizable web UI), MFA
+        - User pool tokens cannot access most AWS services
+        - JWT can be used to access self-managed server based resources
+        - User pool token used as proof of authentication
+        - User Pool tokens can grant access to APIs via Legacy Lambda Custom Authorizers and directly via API Gateway
+        
+    - IDENTITY POOLS = Allow you to offer access to Tempoary AWS Credentials which can access AWS resources
+        - Unauthenticated Identities - Guest Users
+        - Federated Identities - Swap external identity for tempoary AWS credentials
+            - Example = Google, Facebook, Twitter, SAML 2.0 & User Pool for short term AWS credentials to access AWS resources
+        - Cognito assumes an IAM role and defined in Identity Pool and returns tempoary AWS credentials
+        
+    - Web identity federation = swaping of any external ID provider token for AWS credentials
+    
+User Pool & Identity Pool
+
+    - User pool --> JWT (to the application) --> Identity Pool (generates tempoary AWS Credentials) --> Application (with tempoary AWS credentials) --> Access AWS resources
+            
