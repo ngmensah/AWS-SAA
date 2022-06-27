@@ -1,0 +1,11 @@
+CloudFront Terms
+
+    - Origin = The source of the content
+        - S3 Origin 
+        - Custom Origin
+        
+    - Distribution = the configuration unit of CloudFront
+    
+    - Edge Locations = Local cache of your data
+    
+    - Regional Edge Cache = Larger version of edge location. Provides another layer of cache.
